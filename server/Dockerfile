@@ -2,11 +2,11 @@
 FROM rust:1.72-slim-bookworm AS build
 
 RUN apt-get update && apt-get install -y \
-        build-essential \
-        checkinstall \
-        zlib1g-dev \
-        pkg-config \
-        libssl-dev \
+        build-essential=12.* \
+        checkinstall=1.* \
+        zlib1g-dev=1:* \
+        pkg-config=1.8.* \
+        libssl-dev=* \
         --no-install-recommends
 
 RUN set -ex ; \
@@ -43,8 +43,8 @@ RUN set -ex ; \
         chown -R appuser: /home/appuser
 
 RUN apt-get update && apt-get install -y \
-        ca-certificates \
-        libssl3 \
+        ca-certificates=20230311 \
+        libssl3=3.* \
         --no-install-recommends && \
         update-ca-certificates && \
         rm -rf /var/lib/apt/lists/*

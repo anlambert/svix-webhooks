@@ -1,12 +1,12 @@
 name: Lint Code Base
 
 on:
-  pull_request:
-    paths-ignore:
-      - "go/**"
-      - "javascript/**"
-      - "python/**"
-      - "openapi.json"
+  push:
+    # branches:
+    #   - main
+    paths:
+      - 'server/Dockerfile'
+      - '.github/workflows/server-docker-image.yml'
 
 jobs:
   build:

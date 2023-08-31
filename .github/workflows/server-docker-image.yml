@@ -2,8 +2,8 @@ name: Server docker image CI
 
 on:
   push:
-    branches:
-      - main
+    # branches:
+    #   - main
     paths:
       - 'server/Dockerfile'
       - '.github/workflows/server-docker-image.yml'
